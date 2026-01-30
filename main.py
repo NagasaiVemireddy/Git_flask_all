@@ -32,6 +32,15 @@ def query_param():
     print(data,type(data))
     return data
 
+# ==========================
+#   DUMMY TODO BLOCK
+# ==========================
+
+# TODO:
+# - Learn how git stash works
+# - Practice stash save and pop
+
+# End of dummy block
 
 if __name__ == '__main__': # if this is the main file 
     app.run(debug=True) # app is obj --> it contains attributes and methods ( run )
