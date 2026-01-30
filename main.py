@@ -1,6 +1,17 @@
 from flask import Flask ,jsonify,request
+from config import ConfigClass
+from models import db
+
+
 
 app = Flask(__name__)
+app.config.from_object(ConfigClass) # here we are loading the config class 
+db.init_app(app) # its going to make connection between flask and mysql ( before the database engine)
+
+
+#here we are creating the table 
+with app.app_context():
+    db.create_all()
 
 @app.route("/home",methods=['GET']) #route decorator
 def home_func():
@@ -41,6 +52,8 @@ def query_param():
 # - Practice stash save and pop
 
 # End of dummy block
+
+# stash pull is done last step i am doing now 
 
 if __name__ == '__main__': # if this is the main file 
     app.run(debug=True) # app is obj --> it contains attributes and methods ( run )
